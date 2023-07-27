@@ -1,7 +1,22 @@
 import logo from './logo.svg';
 import './App.css';
 
+// import { useKeycloak } from '@react-keycloak/web';
+import keycloak from "./keycloak";
+import Login from './Login';
+
 function App() {
+
+  // const { keycloak, initialized } = useKeycloak();
+
+  // if (!initialized) {
+  //   return <div>Loading...</div>;
+  // }
+
+  if (!keycloak.authenticated) {
+    return <Login />;
+  }
+
   return (
     <div className="App">
       <header className="App-header">
